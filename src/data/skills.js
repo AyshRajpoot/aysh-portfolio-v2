@@ -1,0 +1,65 @@
+export const SKILL_CATEGORIES = [
+  {
+    id: 'backend',
+    icon: 'fa-solid fa-server',
+    title: 'Backend Development',
+    tags: [
+      ['fa-brands fa-node-js', 'Node.js'],
+      ['fa-solid fa-server', 'Express.js'],
+      ['fa-solid fa-cube', 'NestJS'],
+      ['fa-solid fa-plug', 'REST APIs'],
+      ['fa-solid fa-key', 'JWT & Cookies'],
+      ['fa-solid fa-user-shield', 'Authorization'],
+      ['fa-solid fa-envelope-open-text', 'Email Systems'],
+    ],
+  },
+  {
+    id: 'databases',
+    icon: 'fa-solid fa-database',
+    title: 'Databases',
+    tags: [
+      ['fa-solid fa-leaf', 'MongoDB'],
+      ['fa-solid fa-database', 'MySQL'],
+      ['fa-solid fa-database', 'PostgreSQL'],
+      ['fa-solid fa-diagram-project', 'Data Modeling'],
+    ],
+  },
+  {
+    id: 'ai',
+    icon: 'fa-solid fa-robot',
+    title: 'AI & Integrations',
+    tags: [
+      ['fa-solid fa-microphone-lines', 'ElevenLabs Voice AI'],
+      ['fa-solid fa-headset', 'AI Call / Voice Chat'],
+      ['fa-solid fa-heart-pulse', 'Terra Wearables API'],
+      ['fa-solid fa-wand-magic-sparkles', 'Prompt Engineering'],
+      ['fa-solid fa-cloud', 'Cloudinary'],
+    ],
+  },
+  {
+    id: 'payments',
+    icon: 'fa-solid fa-credit-card',
+    title: 'Payments & DevOps',
+    tags: [
+      ['fa-brands fa-stripe-s', 'Stripe Checkout'],
+      ['fa-brands fa-git-alt', 'Git & GitHub'],
+      ['fa-solid fa-truck-fast', 'USPS Shipping API'],
+    ],
+  },
+  {
+    id: 'frontend',
+    icon: 'fa-solid fa-code',
+    title: 'Frontend & CS Fundamentals',
+    tags: [
+      ['fa-brands fa-html5', 'HTML'],
+      ['fa-brands fa-css3-alt', 'CSS'],
+      ['fa-brands fa-bootstrap', 'Bootstrap'],
+      ['fa-solid fa-wind', 'Tailwind'],
+      ['fa-brands fa-js', 'JavaScript'],
+      ['fa-solid fa-cubes', 'OOP'],
+      ['fa-brands fa-java', 'Java'],
+      ['fa-solid fa-sitemap', 'Data Structures'],
+      ['fa-brands fa-android', 'Android Studio'],
+    ],
+  },
+]

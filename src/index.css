@@ -1,0 +1,247 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-ink: #0a0a16;
+  --color-ink-2: #0e0d1d;
+  --color-card: #151327;
+  --color-card-2: #1c1936;
+  --color-txt: #f2f0ff;
+  --color-mut: #a49cc4;
+  --color-lilac: #c4b5fd;
+  --color-pri: #8b5cf6;
+  --color-pri-2: #ec4899;
+  --color-line: rgba(255, 255, 255, 0.09);
+  --font-sora: 'Sora', ui-sans-serif, system-ui, sans-serif;
+  --font-inter: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --breakpoint-wide: 1100px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 84px;
+  }
+
+  body {
+    background-color: var(--color-ink);
+    color: var(--color-txt);
+    font-family: var(--font-inter);
+    line-height: 1.7;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-sora);
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  ::selection {
+    background: var(--color-pri);
+    color: #fff;
+  }
+
+  ::-webkit-scrollbar {
+    width: 9px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-ink-2);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #3b2f63;
+    border-radius: 8px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #4c3d7f;
+  }
+
+  a,
+  button {
+    &:focus-visible {
+      outline: none;
+      box-shadow:
+        0 0 0 2px var(--color-ink),
+        0 0 0 4px var(--color-pri);
+      border-radius: 6px;
+    }
+  }
+}
+
+/* ---------- Shared helpers ---------- */
+
+.grad {
+  background-image: linear-gradient(90deg, #8b5cf6, #ec4899);
+}
+
+.grad-text {
+  background-image: linear-gradient(90deg, #8b5cf6, #ec4899);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-bg {
+  background:
+    radial-gradient(700px 420px at 85% 12%, rgba(139,92,246,.16), transparent),
+    radial-gradient(600px 420px at 8% 88%, rgba(236,72,153,.1), transparent),
+    var(--color-ink);
+}
+
+.section-alt {
+  background: var(--color-ink-2);
+}
+
+/* ---------- Scroll reveal ---------- */
+
+.rv {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 0.8s cubic-bezier(0.2, 0.7, 0.3, 1),
+    transform 0.8s cubic-bezier(0.2, 0.7, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.rv.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Custom cursor ---------- */
+
+.cursor-dot,
+.cursor-ring {
+  display: none;
+}
+
+.cursor-dot {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-pri-2);
+  z-index: 10001;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-ring {
+  position: fixed;
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid var(--color-pri);
+  border-radius: 50%;
+  z-index: 10000;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition:
+    width 0.25s,
+    height 0.25s,
+    background-color 0.25s;
+}
+
+.cursor-ring.big {
+  width: 60px;
+  height: 60px;
+  background: rgba(139, 92, 246, 0.15);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body,
+  a,
+  button {
+    cursor: none;
+  }
+  .cursor-dot,
+  .cursor-ring {
+    display: block;
+  }
+}
+
+@media (hover: none) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none !important;
+  }
+}
+
+/* ---------- Typing caret ---------- */
+
+.caret {
+  display: inline-block;
+  width: 3px;
+  height: 1.05em;
+  background: var(--color-pri-2);
+  margin-left: 3px;
+  vertical-align: -3px;
+  animation: blink 0.8s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ---------- Floating chips ---------- */
+
+.fchip {
+  position: absolute;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-card-2);
+  border: 1px solid var(--color-line);
+  padding: 9px 15px;
+  border-radius: 13px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
+  transition: opacity 0.35s;
+}
+
+.fchip i {
+  color: var(--color-pri-2);
+  width: 16px;
+  text-align: center;
+}
+
+.fchip.fade {
+  opacity: 0;
+}
+
+@keyframes floaty {
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.floaty {
+  animation: floaty 4s ease-in-out infinite;
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .rv {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .floaty,
+  .caret {
+    animation: none;
+  }
+}
