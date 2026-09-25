@@ -35,7 +35,7 @@ export default function Hero() {
   const [imgOk, setImgOk] = useState(true)
 
   return (
-    <header id="home" className="hero-bg relative flex min-h-screen items-center pb-14 pt-24">
+    <header id="home" className="hero-bg relative flex min-h-screen items-center overflow-x-clip pb-14 pt-24">
       <div className="mx-auto grid w-[92%] max-w-[1150px] items-center gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-14">
         <div className="text-center lg:text-left">
           <span className="inline-flex items-center gap-2.5 rounded-full border border-pri/40 bg-pri/10 px-4 py-2 text-[0.8rem] font-semibold tracking-wide text-lilac">
@@ -138,9 +138,11 @@ export default function Hero() {
             </div>
           </div>
 
-          <FloatingChip items={CHIPS[0]} ci={0} position="-left-[6%] top-[6%] lg:-left-[14%]" />
-          <FloatingChip items={CHIPS[1]} ci={1} position="-right-[6%] bottom-[22%] lg:-right-[13%]" />
-          <FloatingChip items={CHIPS[2]} ci={2} position="bottom-[-4%] left-[6%]" />
+          <div className="fchip-row mt-4 flex flex-wrap justify-center gap-2.5 sm:mt-0 sm:contents">
+            <FloatingChip items={CHIPS[0]} ci={0} position="-left-[6%] top-[6%] lg:-left-[14%]" />
+            <FloatingChip items={CHIPS[1]} ci={1} position="-right-[6%] bottom-[22%] lg:-right-[13%]" />
+            <FloatingChip items={CHIPS[2]} ci={2} position="bottom-[-4%] left-[6%]" />
+          </div>
         </div>
       </div>
     </header>

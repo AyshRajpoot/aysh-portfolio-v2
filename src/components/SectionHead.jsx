@@ -1,6 +1,6 @@
 export default function SectionHead({ eyebrow, title, sub }) {
   return (
-    <div className="rv mb-14 text-center">
+    <div className="rv mb-10 text-center md:mb-14">
       <span className="text-[0.78rem] font-semibold uppercase tracking-[0.25em] text-lilac">{eyebrow}</span>
       <h2 className="mt-2.5 text-[clamp(1.8rem,3.5vw,2.4rem)] font-bold tracking-tight">{title}</h2>
       <span
